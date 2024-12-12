@@ -1,0 +1,13 @@
+if:
+  prefix: if
+  body: |
+    if ${1:condition}
+      ${0:action}
+    end
+
+def:
+  prefix: def
+  body: |
+    def ${1:method_name}(${2:args})
+      ${0:body}
+    end

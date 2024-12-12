@@ -14,6 +14,7 @@ test({
     await loader.load(path.join(testDataDir, "global.json"), "*");
     await loader.load(path.join(testDataDir, "typescript.toml"), "typescript");
     await loader.load(path.join(testDataDir, "lua.yaml"), "lua");
+    await loader.load(path.join(testDataDir, "ruby.yml"), "ruby");
     await loader.load(path.join(testDataDir, "vim.ts"), "vim");
     await loader.load(path.join(testDataDir, "global.code-snippets"), "*");
 
@@ -44,6 +45,16 @@ test({
         await op.filetype.set(denops, ft);
         const snippets = await loader.get();
         assertEquals(snippets.length, 4);
+      },
+    });
+
+    await t.step({
+      name: "yml",
+      fn: async () => {
+        const ft = "ruby";
+        await op.filetype.set(denops, ft);
+        const snippets = await loader.get();
+        assertEquals(snippets.length, 3);
       },
     });
 

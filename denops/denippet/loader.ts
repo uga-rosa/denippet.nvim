@@ -150,7 +150,7 @@ export class Loader {
       this.set(snippets);
     } else {
       const raw = await Deno.readTextFile(filepath);
-      if (["json", "toml", "yaml"].includes(extension)) {
+      if (["json", "toml", "yaml", "yml"].includes(extension)) {
         const content = (extension === "json")
           ? JSON.parse(raw)
           : extension === "toml"
