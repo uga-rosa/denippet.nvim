@@ -6,7 +6,7 @@ import { is } from "./deps/unknownutil.ts";
 async function loadPlugin(denops: Denops): Promise<void> {
   const runtimepath = path.resolve(path.fromFileUrl(new URL("../..", import.meta.url)));
   await denops.cmd(`set runtimepath^=${runtimepath}`);
-  await denops.call("denops#plugin#register", "denippet");
+  await denops.call("denops#plugin#discover");
   await denops.call("denops#plugin#wait", "denippet");
 }
 
