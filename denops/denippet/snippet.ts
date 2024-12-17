@@ -26,7 +26,9 @@ export class Snippet {
     const snippetNode = await parse(denops, body);
 
     // Resolve reference relationships using breadth first search.
-    const isJumpable = (token: Node.Node): token is Node.Jumpable => token.isJumpable();
+    const isJumpable = (
+      token: Node.Node,
+    ): token is Node.Tabstop | Node.Placeholder | Node.Choice => token.isJumpable();
     const nodeQueue = snippetNode.children.filter((node) => node.type !== "text");
     // Key is tabstop
     const jumpableNodeMap = new Map<number, Node.Jumpable>();
